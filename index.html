@@ -368,6 +368,7 @@ h1{
 .big span{color:var(--muted);font-size:15px;font-weight:550}
 .annual{margin:10px 0 0;color:var(--muted);font-size:14px}
 .feature-note{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);color:#3f3f3d;font-size:13.5px;line-height:1.55}
+.rate-fine{margin:8px 0 0;color:var(--muted);font-size:11.5px;line-height:1.45}
 .chart{
   margin-top:14px;padding:18px;border-radius:18px;border:1px solid var(--line);background:#fff;
   animation:tile-in .62s cubic-bezier(.22,1,.36,1) both;
@@ -1136,7 +1137,7 @@ function paintCosts(entry){
   $('results').innerHTML =
     '<div class="results-head"><h2 id="results-title" tabindex="-1"><span class="dot" aria-hidden="true"></span>Koszty VoiceLink</h2><button class="ghost" type="button" id="back-savings">' + icon.back + 'Powrót do oszczędności</button></div>' +
     '<article class="feature"><div class="feature-top"><div><span class="badge">Opłata jednorazowa</span><h3>Wdrożenie dla jednej placówki</h3></div><span class="icon-lg" aria-hidden="true">' + icon.wallet + '</span></div><p class="big"><strong>' + whole.format(CALCULATION_CONFIG.setupFeeGross) + '</strong><span>zł brutto</span></p><p class="feature-note">Opłata jest pobierana raz, za placówkę. Nie wchodzi do abonamentu miesięcznego i nie jest odejmowana od szacowanego przychodu.</p></article>' +
-    '<article class="feature"><div class="feature-top"><div><span class="badge">Abonament miesięczny</span><h3>Koszt VoiceLink</h3></div><span class="icon-lg" aria-hidden="true">' + icon.phone + '</span></div><p class="big"><strong>' + formatFixed(monthlyTotal, 2) + '</strong><span>zł / mies.</span></p><p class="annual">' + moneyExact(yearlyTotal) + ' rocznie przy niezmiennym ruchu</p><p class="feature-note">' + subscriptionNote + '</p></article>' +
+    '<article class="feature"><div class="feature-top"><div><span class="badge">Abonament miesięczny</span><h3>Koszt VoiceLink</h3></div><span class="icon-lg" aria-hidden="true">' + icon.phone + '</span></div><p class="big"><strong>' + formatFixed(monthlyTotal, 2) + '</strong><span>zł / mies.</span></p><p class="annual">' + moneyExact(yearlyTotal) + ' rocznie przy niezmiennym ruchu</p><p class="feature-note">' + subscriptionNote + '</p><p class="rate-fine">Stawka minutowa użyta w wyliczeniu: ' + formatFixed(price.tier.rate, 2) + '\u00a0zł / min, przedział ' + price.tier.label + '.</p></article>' +
     comparison +
     '<details class="formula"><summary>' + (entry.mode === 'noshow' ? 'Jak liczymy koszt?' : 'Skąd liczba minut?') + '</summary><p>' + formula + '</p></details>' +
     '<div class="results-actions"><button class="submit" type="button" id="back-savings-primary">Powrót do oszczędności</button></div>';
